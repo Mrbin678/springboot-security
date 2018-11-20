@@ -1,0 +1,25 @@
+<span style="color: red">test2:</span> {{ d.a }} <br>
+
+测试tpl中使用spring bean: <br>
+格式化时间函数：<br>
+<code>
+    \{\{ dream.use("fmt").format(d.date, "yyyy-MM-dd HH:mm:ss"); \}\}<br>
+    \{\{ dream.use("fmt").format(d.localDateTime, "yyyy-MM-dd HH:mm:ss"); \}\}
+</code>
+<br>
+输出：
+{{# var fmt = dream.use("fmt"); }}
+{{ fmt.format(d.date, 'yyyy-MM-dd HH:mm:ss') }} <br>
+{{ fmt.format(d.localDateTime, 'yyyy-MM-dd HH:mm:ss') }}
+<br>
+格式化数字：<br>
+注意:`#`在tpl中是特殊字符<br>
+<code>
+    \{\{# var _num = dream.use("fmt").format(d.num, "#.00"); \}\}
+    \{\{ _num \}\}
+</code>
+<br>
+输出：
+{{# var _num = fmt.format(100.999999,"#.00") }}
+{{ _num }}
+

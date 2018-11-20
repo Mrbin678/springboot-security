@@ -1,0 +1,25 @@
+我是test3：
+
+{{#
+console.log();
+console.log("im {}", "L.cm");
+
+console.error("hi im {}", "L.cm");
+
+console.log("laytpl version:{}", laytpl.v)
+}}
+
+{{# for(var i in d ){ }}
+    {{ i }}
+{{# } }}
+
+<hr>
+测试tpl中使用spring bean: <br>
+直接使用dream.use("sec"); 方法传参beanName，即可。<br>
+示例：<br>
+<code>
+\{\{    dream.use("sec").hasPermission("admin:add"); \}\}
+</code>
+<br>
+输出：{{ dream.use("sec").hasPermission('admin:add') }}
+<br>

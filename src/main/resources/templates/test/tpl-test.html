@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<p>
+v0.0.9添加 fmt 函数，用来处理时间和数字的格式化：
+</p>
+1. 数字格式化`@fmt.format(_num, '#.00')`<br>
+<th:block th:text="${@fmt.format(_num, '#.00')}"></th:block><br>
+2. java date时间转换`@fmt.format(date, 'yyyy-MM-dd HH:mm:ss')`<br>
+<th:block th:text="${@fmt.format(date, 'yyyy-MM-dd HH:mm:ss')}"></th:block><br>
+3. java8 LocalDateTime时间转换`@fmt.format(localDateTime, 'yyyy-MM-dd HH:mm:ss')`<br>
+<th:block th:text="${@fmt.format(localDateTime, 'yyyy-MM-dd HH:mm:ss')}"></th:block><br>
+<hr>
+
+<div>
+测试thymeleaf调用方式 1：[[${@tpl.renderTpl('test1.html', '哈哈哈test1')}]]
+</div>
+<hr>
+测试thymeleaf调用方式 2（map参数）：
+<!-- th:text 会转义html，th:utext不会 -->
+<div th:utext="${@tpl.renderTpl('test2.html', {'a': '我是test2', 'date': date, 'localDateTime': localDateTime, 'num': _num})}"/>
+<hr>
+<!--测试laytpl js 3（spring el 数组传参）：-->
+<div th:utext="${@tpl.renderTpl('test3.html', {1, 2, 3})}"/>
+

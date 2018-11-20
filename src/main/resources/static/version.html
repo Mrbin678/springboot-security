@@ -1,0 +1,71 @@
+<h1>
+    版本更新说明：
+</h1>
+<h2>v2.0.3 2018-10-27</h2>
+<p>1. 使用 lutool 2.0.3 版本，针对Spring boot 2.x</p>
+<p>2. 升级到 Spring boot 2.x、mybatis plus 3.x</p>
+<h2>v1.0.4 2018-07-21</h2>
+<p>1. 添加 druid 数据库密码加密</p>
+<p>2. lutool 添加 ontest 环境</p>
+<p>3. 优化lutool Fegin 和 RestTemplate日志配置</p>
+<p>4. 添加 war 包支持</p>
+<h2>v1.0.3 2018-06-03</h2>
+<p>1. lutool 添加cloud模块，添加Fegin自动fallback功能(再也不用写一堆fallback)、集成ID生成服务</p>
+<p>2. lutool 代码优化，集成jsr305和findBug静态代码检查</p>
+<p>3. 添加如梦cloud Api接口和Service服务在线代码生成</p>
+<p>4. lutool dream-security添加Druid可执行sql打印和数据库密码加密</p>
+<h2>v1.0.2 2018-05-20</h2>
+<p>1. spring boot 升级到 1.5.13.RELEASE</p>
+<p>2. swagger 支持 Authorization 授权</p>
+<p>3. 优化Aop事物只有在添加 spring-tx 之后启用</p>
+<p>4. 添加针对 Boolean、Integer、Long的状态模式格式化 @StatusFormat</p>
+<p>5. 验证码默认改为关闭</p>
+<p>6. 修改 @ApiVersionMapping 只能注解到类上面，避免误用照成混乱，组合@Validated，方便接口参数校验</p>
+<p>7. 增强校验，支持方法(@Validated @NotBlank String test) 也可用于服务层</p>
+<p>8. 添加ResourceUtils工具类，支持：classpath:、classpath*:、http:、https:、ftp:、file:等资源获取</p>
+<p>9. 优化 DateUtils，添加ConcurrentDateFormat</p>
+<p>10. 完善优化BeanUtils，添加clone、copyConvert和copyPropertiesConvert拷贝并类型转换）</p>
+<p>11. dream-security fixed 文件上传配置</p>
+<h2>v1.0.1 2018-05-06</h2>
+<p>1. lutool支持Csv导入(感谢`VIP`群友 @150171493)</p>
+<p>2. lutool CaptchaUtils验证码默认改为生成Base64，方便扩展(感谢`VIP`群友 @150171493)</p>
+<h2>v1.0.0 2018-05-01</h2>
+<p>1. lutool不再内置log4j2（项目中可以根据自己的喜好修改）。</p>
+<p>2. 修改默认的logging.pattern.console，添加行号和方法名打印（方便排插问题）。</p>
+<p>3. lutool添加`Swagger2`自动配置。</p>
+<p>4. lutool内置控制器`http-cache`处理，针对get请求。</p>
+<p>5. lutool内置`ApiVersion`用于接口版本管理。</p>
+<p>6. lutool新增`CollectionUtils,ClassUtils,ObjectUtils`。</p>
+<p>7. lutool`BeanUtils`添加`bean diff`功能。</p>
+<p>8. lutool`Bean-Validator`国际化文件可配置文件化。</p>
+<p>9. dream-security国际化调整，添加国际化切换。</p>
+<p>10. lutool-excel修复解析长数字格式和导出String类型空指针问题（感谢`pig`团队@李寻欢）。</p>
+<p>11. lutool-excel添加`EasyCsv`，导出200万数据20秒。</p>
+<p>12. 修复lutool-ueditor图片上传没创建目录的问题（感谢VIP群友反馈）</p>
+<p>13. 修复dream-tpl在某些环境中乱码导致无法启动（感谢VIP群友反馈）</p>
+<h2>v0.0.9 2018-04-21</h2>
+<p>1. tpl中添加 spring bean 的引用方法<code>{{ dream.use("sec") }}</code></p>
+<p>2. 内置数字和时间格式化函数<code>FmtFun</code>供thymeleaf和Tpl使用，具体请查看【tpl模板测试】tpl-test.html</p>
+<p>3. 添加字典和字典函数<code>SysDictFunc</code></p>
+<p>4. 添加jsonp和cors跨域配置</p>
+<p>5. 添加spring task定时任务、async异步调用、spring cache demo演示（详见test包）</p>
+<p>6. 添加Dockerfile，和文档</p>
+<p>7. 文件下载支持断点续传</p>
+<hr>
+<h2>v0.0.8 2018-04-13</h2>
+<p>添加内置tpl，可用于邮件、短信等模板，同时已经和`thymeleaf`深度集成。添加集成演示。</p>
+<p>修改操作日志。</p>
+<p>修改list页面生成`easyui columns`。</p>
+<p>修复`datagrid、treegrid`表头菜单。</p>
+<p>`AdminVO`中`organizationId`类型修改。</p>
+<p>添加 `Results.status(boolean)` 方法，统一处理数据库操作返回。</p>
+<p>优化代码生成方法详见 `test/java/net/dreamlu/generator/MysqlGenerator.java` 。</p>
+<p>
+`升级：` 执行`docs/update-20180412.sql`，添加演示的资源。<br>
+`注意：`<br>
+- 本次直接跳过 `0.0.6`、`0.0.7`。<br>
+- `mybatis-plus` 逻辑删除弃用。<br>
+</p>
+<hr>
+<h2>v0.0.5 2018-04-01</h2>
+<p>添加admin锁定功能，登录5次密码错误，锁定账号。</p>

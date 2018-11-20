@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'north',border:false">
+        <a th:href="@{/excel/export}">Excel文件导出</a>
+        <p style="height: 10px"></p>
+        <form th:action="@{/excel/upload}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" value="Excel上传"> <br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</div>

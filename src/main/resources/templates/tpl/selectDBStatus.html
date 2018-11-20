@@ -1,0 +1,7 @@
+{{#
+    var dictFun = dream.use("dictFun");
+    var dicts = dictFun.getByType(d);
+}}
+{{# for( var i = 0; i< dicts.length; i++ ) { }}
+<option value="{{ dicts[i].dictKey }}">{{ dicts[i].dictValue }}</option>
+{{# } }}
