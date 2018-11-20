@@ -1,0 +1,86 @@
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+  servlet:
+    multipart:
+      max-request-size: 10Mb
+      max-file-size: 1Mb
+      location: ${java.io.tmpdir}
+      file-size-threshold: 0
+  mvc:
+    throw-exception-if-no-handler-found: true
+    static-path-pattern: /static/**
+  resources:
+    add-mappings: true
+    cache:
+      cachecontrol:
+        max-age: 356d
+  messages:
+    basename: messages/messages
+    cache-duration: 1d
+  jackson:
+    locale: zh
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+  thymeleaf:
+    mode: html
+  cache:
+    ehcache:
+      config: classpath:config/ehcache.xml
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 5
+      min-idle: 10
+      max-active: 100
+      max-wait: 60000
+      validation-query-timeout: 300
+      validation-query: SELECT 'x'
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-on-borrow: true
+      test-on-return: true
+      test-while-idle: true
+      filter:
+        log4j2:
+          enabled: true
+          statement-log-enabled: false
+          statement-log-error-enabled: true
+          statement-executable-sql-log-enable: true # 打印可执行的sql
+        wall:
+          enabled: true
+        config:
+           enabled: true #启用druid 数据库密码加密
+      connection-properties: config.decrypt=true;config.decrypt.key=${publickey}
+      stat-view-servlet:
+        url-pattern: /druid/*
+        reset-enable: false
+        login-password: druid
+        login-username: druid
+      web-stat-filter:
+        session-stat-enable: false
+        url-pattern: /*
+        exclusions: /static/*,*.ico,/druid/*
+
+dream:
+  captcha:
+    enabled: true
+
+logging:
+  config: classpath:log/log4j2_${dream.env}.xml
+
+
+## mybatis
+mybatis-plus:
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+  typeAliasesPackage: net.dreamlu.**.model
+  mapper-locations: classpath:net/dreamlu/**/mapper/*Mapper.xml
+  global-config:
+    field-strategy: 2
+    db-column-underline: true
+    refresh-mapper: true
+    id-type: 0
